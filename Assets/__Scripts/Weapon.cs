@@ -132,7 +132,13 @@ public class Weapon : MonoBehaviour {
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
                 break;
-            //case WeaponType.laser:
+            case WeaponType.laser:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localScale += new Vector3(0, 5, 0); 
+                break;
+            
+
 
         }
     }
@@ -157,4 +163,6 @@ public class Weapon : MonoBehaviour {
         lastShotTime = Time.time;
         return p;
     }
+
+   
 }
