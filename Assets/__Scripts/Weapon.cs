@@ -38,6 +38,8 @@ public class WeaponDefinition
 }
 public class Weapon : MonoBehaviour {
     static public Transform PROJECTILE_ANCHOR;
+    Laser_Weapon Player;
+    
 
     [Header("Set Dynamically")]
     [SerializeField]
@@ -46,6 +48,7 @@ public class Weapon : MonoBehaviour {
     public GameObject collar;
     public float lastShotTime; // Time last shot was fired
     private Renderer collarRend;
+    
 
     private void Start()
     {
@@ -133,11 +136,14 @@ public class Weapon : MonoBehaviour {
                 p.rigid.velocity = p.transform.rotation * vel;
                 break;
             case WeaponType.laser:
-                p = MakeProjectile();
+                /*p = MakeProjectile();
                 p.rigid.velocity = vel;
-                p.transform.localScale += new Vector3(0, 5, 0); 
+                p.transform.localScale += new Vector3(0, 10, 0); 
                 break;
-            
+                */
+                Player = GameObject.FindGameObjectWithTag("Hero").GetComponent<Laser_Weapon>();
+                Player.startlaser();
+                break;
 
 
         }
@@ -164,5 +170,25 @@ public class Weapon : MonoBehaviour {
         return p;
     }
 
+
+
+
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
