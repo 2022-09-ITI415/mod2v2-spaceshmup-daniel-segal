@@ -398,18 +398,19 @@ MonoBehaviour:
     continuousDamage: 0
     delayBetweenShots: 0
     velocity: 0
-  - type: 5
-    letter: L
-    color: {r: 1, g: 0.19547817, b: 0, a: 1}
-    projectilePrefab: {fileID: 0}
-    projectileColor: {r: 0, g: 1, b: 0.02745098, a: 1}
-    damageOnHit: 0
-    continuousDamage: 20
-    delayBetweenShots: 0
-    velocity: 0
+  - type: 3
+    letter: P
+    color: {r: 1, g: 0, b: 0.88856506, a: 1}
+    projectilePrefab: {fileID: 1899541879965282, guid: 59a4640edad59f94a87c1d235355cb6a,
+      type: 3}
+    projectileColor: {r: 1, g: 0, b: 0.8146653, a: 1}
+    damageOnHit: 1
+    continuousDamage: 0
+    delayBetweenShots: 0.2
+    velocity: 50
   prefabPowerUp: {fileID: 1062273549804748, guid: 9649a9a79085a854d9990613a980f435,
     type: 3}
-  powerUpFrequency: 05000000
+  powerUpFrequency: 03000000
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0

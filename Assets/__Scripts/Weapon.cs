@@ -15,7 +15,8 @@ public enum WeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
-    shield // Raise shieldLevel
+    shield, // Raise shieldLevel
+    twoshot
 }
 
 /// <summary>
@@ -39,6 +40,7 @@ public class WeaponDefinition
 public class Weapon : MonoBehaviour {
     static public Transform PROJECTILE_ANCHOR;
     Laser_Weapon Player;
+
     
 
     [Header("Set Dynamically")]
@@ -52,6 +54,9 @@ public class Weapon : MonoBehaviour {
 
     private void Start()
     {
+        
+
+
         collar = transform.Find("Collar").gameObject;
         collarRend = collar.GetComponent<Renderer>();
 
@@ -150,6 +155,28 @@ public class Weapon : MonoBehaviour {
                 p.transform.localScale += new Vector3(0, 10, 0);
                 p.transform.position += new Vector3(0, 20, 0);
                 break;
+            case WeaponType.twoshot:
+
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localPosition += new Vector3 (2, 0, 0);
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localPosition += new Vector3(-2, 0, 0);
+
+                break;
+            case WeaponType.phaser:
+
+                p = MakeProjectile();
+                p.transform.position += p.transform.up * Time.deltaTime * 50;
+                p.transform.position = p.transform.position + p.transform.right * Mathf.Sin(Time.time * 20f) * 0.5f;
+                p.rigid.velocity = vel;
+                p.transform.localPosition += new Vector3(2, 0, 0);
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localPosition += new Vector3(-2, 0, 0);
+
+                break;
 
 
         }
@@ -179,7 +206,6 @@ public class Weapon : MonoBehaviour {
 
 
 
-   
 
 
 
@@ -197,4 +223,7 @@ public class Weapon : MonoBehaviour {
 
 
 
-}
+
+
+
+    }
