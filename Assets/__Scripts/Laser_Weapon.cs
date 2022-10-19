@@ -13,7 +13,7 @@ public class Laser_Weapon : MonoBehaviour
     private void Awake()
     {
         m_transform = GetComponent<Transform>();
-        
+
     }
 
     private void Update()
@@ -49,7 +49,7 @@ public class Laser_Weapon : MonoBehaviour
         {
             Draw2DRay(laserFirePoint.position, laserFirePoint.transform.right * defDistanceRay);
         }
-        
+
 
     }
 
@@ -64,9 +64,28 @@ public class Laser_Weapon : MonoBehaviour
         Transform rootT = collision.gameObject.transform.root;
         GameObject go = rootT.gameObject;
         print("Triggered: " + go.name);
+
+        if (go == lastTriggerGo)
+        {
+            return;
+        }
+        lastTriggerGo = go;
+
+        if (go.tag == "Enemy")
+        {
+            
+         
+        }
+
+        else
+        {
+            print("Triggered by non-Enemy: " + go.name);
+        }
     }
 
-
-
-
 }
+
+
+
+
+

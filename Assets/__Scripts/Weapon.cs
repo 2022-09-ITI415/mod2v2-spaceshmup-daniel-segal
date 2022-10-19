@@ -168,8 +168,7 @@ public class Weapon : MonoBehaviour {
             case WeaponType.phaser:
 
                 p = MakeProjectile();
-                p.transform.position += p.transform.up * Time.deltaTime * 50;
-                p.transform.position = p.transform.position + p.transform.right * Mathf.Sin(Time.time * 20f) * 0.5f;
+                p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = vel;
                 p.transform.localPosition += new Vector3(2, 0, 0);
                 p = MakeProjectile();
