@@ -29,6 +29,14 @@ public class Laser_Weapon : MonoBehaviour
         laserOn = true;
     }
 
+    public void stoplaser()
+    {
+        if (laserOn == true)
+        {
+            laserOn = false;
+        }
+    }
+
     void ShootLaser()
     {
         if (Physics2D.Raycast(m_transform.position, transform.right))
@@ -51,6 +59,12 @@ public class Laser_Weapon : MonoBehaviour
         m_LineRenderer.SetPosition(2, endPos);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Transform rootT = collision.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+        print("Triggered: " + go.name);
+    }
 
 
 

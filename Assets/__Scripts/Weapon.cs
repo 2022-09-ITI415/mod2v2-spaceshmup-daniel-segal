@@ -144,6 +144,12 @@ public class Weapon : MonoBehaviour {
                 Player = GameObject.FindGameObjectWithTag("Hero").GetComponent<Laser_Weapon>();
                 Player.startlaser();
                 break;
+            case WeaponType.missile:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localScale += new Vector3(0, 10, 0);
+                p.transform.position += new Vector3(0, 20, 0);
+                break;
 
 
         }
