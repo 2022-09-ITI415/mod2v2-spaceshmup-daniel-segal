@@ -15,7 +15,8 @@ public enum WeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
-    shield // Raise shieldLevel
+    shield, // Raise shieldLevel
+    twoshot
 }
 
 /// <summary>
@@ -38,6 +39,9 @@ public class WeaponDefinition
 }
 public class Weapon : MonoBehaviour {
     static public Transform PROJECTILE_ANCHOR;
+    Laser_Weapon Player;
+
+    
 
     [Header("Set Dynamically")]
     [SerializeField]
@@ -46,9 +50,13 @@ public class Weapon : MonoBehaviour {
     public GameObject collar;
     public float lastShotTime; // Time last shot was fired
     private Renderer collarRend;
+    
 
     private void Start()
     {
+        
+
+
         collar = transform.Find("Collar").gameObject;
         collarRend = collar.GetComponent<Renderer>();
 
@@ -132,6 +140,54 @@ public class Weapon : MonoBehaviour {
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
                 break;
+            case WeaponType.laser:
+                /*p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localScale += new Vector3(0, 10, 0); 
+                break;
+                */
+                Player = GameObject.FindGameObjectWithTag("Hero").GetComponent<Laser_Weapon>();
+                Player.startlaser();
+                break;
+            case WeaponType.missile:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localScale += new Vector3(0, 10, 0);
+                p.transform.position += new Vector3(0, 20, 0);
+                break;
+            case WeaponType.twoshot:
+
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localPosition += new Vector3 (2, 0, 0);
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.transform.localPosition += new Vector3(-2, 0, 0);
+
+                break;
+            case WeaponType.phaser:
+
+                p = MakeProjectile();
+                Vector3 position = p.transform.position;
+                Vector3  axis = p.transform.right;
+                //p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
+                //p.rigid.velocity = vel;
+                position = p.transform.position;
+                axis = p.transform.right;
+
+                position += p.transform.up * Time.deltaTime * 50;
+                p.transform.position = position + axis * Mathf.Sin(Time.time * 20.0f) * 0.5f;
+                p.rigid.velocity = p.transform.position;
+                p.transform.localPosition += new Vector3(2, 0, 0);
+                p = MakeProjectile();
+                position += p.transform.up * Time.deltaTime * 50;
+                p.transform.position = position + axis * Mathf.Sin(Time.time * 20.0f) * 0.5f;
+                p.rigid.velocity = p.transform.position;
+                p.transform.localPosition += new Vector3(-2, 0, 0);
+
+                break;
+
+
         }
     }
 
@@ -155,4 +211,28 @@ public class Weapon : MonoBehaviour {
         lastShotTime = Time.time;
         return p;
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }

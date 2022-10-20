@@ -98,8 +98,13 @@ public class Enemy : MonoBehaviour {
                     // Destroy this enemy
                     Destroy(this.gameObject);
                 }
-                Destroy(otherGO);
-                break;
+
+                
+               // if (p.GetType) // check type of weapon, if laser do not destroy otherwise destroy projectile
+               // {
+                    Destroy(otherGO);
+                    break;
+               // }
 
             default:
                 print("Enemy hit by non-ProjectileHero: " + otherGO.name);
