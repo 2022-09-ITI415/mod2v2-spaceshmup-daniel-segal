@@ -59,8 +59,13 @@ public class Laser_Weapon : MonoBehaviour
         m_LineRenderer.SetPosition(1, endPos);
     }
 
-   
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
+
+
 
 }
 
