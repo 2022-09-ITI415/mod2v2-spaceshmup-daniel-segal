@@ -488,7 +488,8 @@ MonoBehaviour:
   - type: 7
     letter: 2
     color: {r: 0, g: 0.22364378, b: 1, a: 1}
-    projectilePrefab: {fileID: 0}
+    projectilePrefab: {fileID: 1899541879965282, guid: 59a4640edad59f94a87c1d235355cb6a,
+      type: 3}
     projectileColor: {r: 0, g: 0.18571997, b: 1, a: 1}
     damageOnHit: 1
     continuousDamage: 0
