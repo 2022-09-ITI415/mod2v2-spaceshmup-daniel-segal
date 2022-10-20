@@ -28,3 +28,9 @@ Blaster and Spread Velocity and damage: Increase to account for the faster enemy
 
 Hero Speed: Helps speed up player movement to account for the increased enemy spawn rates and weapon damage.
 
+[Added Features]
+Two Shot Weapon: Fires two projectiles at once
+Laser Weapon: attempted to have a laser using a line render however has issues with collisions and snapping to the center of screen
+Phaser Weapon : attempted to make projectiles fire in a sine wave however, ended up just firing projectiles in random directions
+UI: Added a counter to show the player how many ships they have destroyed during a given playthrough
+
