@@ -479,9 +479,17 @@ MonoBehaviour:
   - type: 5
     letter: L
     color: {r: 1, g: 0.14359435, b: 0, a: 1}
-    projectilePrefab: {fileID: 1899541879965282, guid: 59a4640edad59f94a87c1d235355cb6a,
-      type: 3}
+    projectilePrefab: {fileID: 0}
     projectileColor: {r: 1, g: 0.06997466, b: 0, a: 1}
+    damageOnHit: 1
+    continuousDamage: 0
+    delayBetweenShots: 0.2
+    velocity: 60
+  - type: 7
+    letter: 2
+    color: {r: 0, g: 0.22364378, b: 1, a: 1}
+    projectilePrefab: {fileID: 0}
+    projectileColor: {r: 0, g: 0.18571997, b: 1, a: 1}
     damageOnHit: 1
     continuousDamage: 0
     delayBetweenShots: 0.2
@@ -489,7 +497,7 @@ MonoBehaviour:
   prefabPowerUp: {fileID: 1062273549804748, guid: 9649a9a79085a854d9990613a980f435,
     type: 3}
   uitKills: {fileID: 1971205216}
-  powerUpFrequency: 0100000001000000020000000600000005000000030000000700000001000000
+  powerUpFrequency: 010000000100000002000000060000000500000003000000070000000100000007000000
   kills: 0
 --- !u!20 &282840813
 Camera:
