@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class Main : MonoBehaviour {
@@ -15,10 +16,17 @@ public class Main : MonoBehaviour {
     public float enemyDefaultPadding = 1.5f; // Padding for position
     public WeaponDefinition[] weaponDefinitions;
     public GameObject prefabPowerUp;
+    public Text uitKills;
     public WeaponType[] powerUpFrequency = new WeaponType[]
+    
+
+
     {
         WeaponType.blaster, WeaponType.blaster, WeaponType.spread, WeaponType.shield
     };
+
+    [Header("Set Dynamically")]
+    public int kills;
 
     private BoundsCheck bndCheck;
 
@@ -40,8 +48,19 @@ public class Main : MonoBehaviour {
             // Set it to the position of the destroyed ship
             pu.transform.position = e.transform.position;
         }
+        kills++;
     }
 
+
+    private void UpdateGUI()
+    {
+        uitKills.text = "Ships Destroyed: " + kills;
+    }
+
+    private void Update()
+    {
+        UpdateGUI();
+    }
     private void Awake()
     {
         S = this;

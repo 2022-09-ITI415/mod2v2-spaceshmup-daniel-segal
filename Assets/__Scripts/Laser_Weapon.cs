@@ -59,29 +59,8 @@ public class Laser_Weapon : MonoBehaviour
         m_LineRenderer.SetPosition(2, endPos);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Transform rootT = collision.gameObject.transform.root;
-        GameObject go = rootT.gameObject;
-        print("Triggered: " + go.name);
-
-        if (go == lastTriggerGo)
-        {
-            return;
-        }
-        lastTriggerGo = go;
-
-        if (go.tag == "Enemy")
-        {
-            
-         
-        }
-
-        else
-        {
-            print("Triggered by non-Enemy: " + go.name);
-        }
-    }
+   
+    
 
 }
 
