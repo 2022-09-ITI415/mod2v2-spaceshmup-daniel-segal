@@ -34,3 +34,6 @@ Laser Weapon: attempted to have a laser using a line render however has issues w
 Phaser Weapon : attempted to make projectiles fire in a sine wave however, ended up just firing projectiles in random directions
 UI: Added a counter to show the player how many ships they have destroyed during a given playthrough
 
+[Bugs]
+Game Works fine in editor however, when built character and enemies turn invisibile and pop in and out. Appreciate if anyone has any ideas on ways to fix this issue.
+
