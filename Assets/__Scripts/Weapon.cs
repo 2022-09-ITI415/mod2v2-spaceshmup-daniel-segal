@@ -168,21 +168,21 @@ public class Weapon : MonoBehaviour {
             case WeaponType.phaser:
 
                 p = MakeProjectile();
-                Vector3 position = transform.position;
-                Vector3  axis = transform.right;
+                Vector3 position = p.transform.position;
+                Vector3  axis = p.transform.right;
                 //p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 //p.rigid.velocity = vel;
-                position = transform.position;
-                axis = transform.right;
+                position = p.transform.position;
+                axis = p.transform.right;
 
-                position += transform.up * Time.deltaTime * 50;
-                transform.position = position + axis * Mathf.Sin(Time.time * 20.0f) * 0.5f;
-                p.rigid.velocity = transform.position;
+                position += p.transform.up * Time.deltaTime * 50;
+                p.transform.position = position + axis * Mathf.Sin(Time.time * 20.0f) * 0.5f;
+                p.rigid.velocity = p.transform.position;
                 p.transform.localPosition += new Vector3(2, 0, 0);
                 p = MakeProjectile();
-                position += transform.up * Time.deltaTime * 50;
-                transform.position = position + axis * Mathf.Sin(Time.time * 20.0f) * 0.5f;
-                p.rigid.velocity = transform.position;
+                position += p.transform.up * Time.deltaTime * 50;
+                p.transform.position = position + axis * Mathf.Sin(Time.time * 20.0f) * 0.5f;
+                p.rigid.velocity = p.transform.position;
                 p.transform.localPosition += new Vector3(-2, 0, 0);
 
                 break;
