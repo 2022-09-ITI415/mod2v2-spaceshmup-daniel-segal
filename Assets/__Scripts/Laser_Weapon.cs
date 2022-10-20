@@ -56,7 +56,7 @@ public class Laser_Weapon : MonoBehaviour
     void Draw2DRay(Vector2 startPos, Vector2 endPos)
     {
         m_LineRenderer.SetPosition(0, startPos);
-        m_LineRenderer.SetPosition(2, endPos);
+        m_LineRenderer.SetPosition(1, endPos);
     }
 
    
